@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>推しと作業をがんばってみるタイマー | f.Sato</title>
+        <meta charset="utf-8">
+        <meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE">
+		<meta name="viewport" content="width=device-width">
+        <meta name="description" content="このタイマーは時間管理術の一つ、ポモドーロ・テクニックをもとにしたポモドーロタイマーです。作業25分＋休憩5分を1セットとすることで、集中力の最大化と生産性の向上を目指します。それに加えて、このタイマーでは、あなたが設定した「推し」の画像が休憩中に表示されます。推しに来てもらえるまでの25分間、スモールステップで取り組みましょう。">
+        <meta property="og:image" content="./image/bnr.png" />
+        <meta property="og:title" content="推しと作業をがんばってみるタイマー | f.Sato" />
+        <meta property="og:description" content="このタイマーは時間管理術の一つ、ポモドーロ・テクニックをもとにしたポモドーロタイマーです。作業25分＋休憩5分を1セットとすることで、集中力の最大化と生産性の向上を目指します。それに加えて、このタイマーでは、あなたが設定した「推し」の画像が休憩中に表示されます。推しに来てもらえるまでの25分間、スモールステップで取り組みましょう。" />
+        <link rel="icon" href="./image/favicon.ico">
+        <link rel="apple-touch-icon" href="./image/favicon.ico">
+        <link rel="icon" sizes="83x83" href="./image/favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|M+PLUS+1p|Noto+Sans+JP|Sawarabi+Mincho&display=swap" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+    </head>
+    <body>
+        <header></header>
+        <div id="" class="contentsWrap">
+            <!-- 外枠ここから -->
+            <div class="contentsFrame l-top"></div>
+            <div class="contentsFrame l-bottom"></div>
+            <div class="contentsFrame l-right"></div>
+            <div class="contentsFrame l-left"></div>
+            <!-- 外枠ここまで -->
+            <!-- ファーストビュー -->
+            <div id="modalOne" class="modal d-block timerBg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="timerTtlWrap">
+                            <h1><img src="./image/ttl_img.png"></h1>
+                        </div>
+                        <div class="timerBtnWrap">
+                            <!-- 画像フォルダより画像を選択 -->
+                            <form>
+                                <label class="">
+                                    <input type="file" id="imageChooseBtn" class="btn" accept='image/*' onchange="previewImage(this);" value="">
+                                    #&nbsp;推しの画像を選択する
+                                </label>
+                            </form>
+                            <!--  -->
+                            <label class="btn-blue">
+                                <input type="button" id="requiredBtn" class="btn workStartBtn triggerBtn btn-blue" value="" data-modal="modalOne">
+                                #&nbsp;推しと作業を始める&emsp;
+                            </label>
+                        </div>
+                        <div class="timerExplain">
+                            <p>
+                                <span style="font-weight: bold;">注意&emsp;このページは音が出ます！</span><br>
+                                このタイマーは時間管理術の一つ、ポモドーロ・テクニックをもとにしたポモドーロタイマーです。作業25分＋休憩5分を1セットとすることで、<span>集中力の最大化と生産性の向上を目指します</span>。それに加えて、このタイマーでは、<span>あなたが設定した「推し」の画像が休憩中に表示</span>されます。
+                                推しに来てもらえるまでの25分間、スモールステップで取り組みましょう。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  id="timerTop" class="contents timerBg">
+                <!-- 現在時刻とタイマーエリア -->
+                <div class="mainTimer">
+                    <div class="timerWrap">
+                        <p class="timeLeft">
+                            <span id="timer_m">25</span>:<span id="timer_s">00</span>
+                        </p>
+                        <p class="currentTime">現在時刻&emsp;<span id="result"></span></p>
+                    </div>
+                    <!-- /現在時刻とタイマーエリア -->
+                    <!-- タイマーボタンエリア -->
+                    <div class="timerBtnWrap">
+                        <label class="tgrBtn d-block">
+                            <input type="button" id="stopBtn" class="btn className" value="">一時停止
+                        </label>
+                        <label class="tgrBtn btn-blue">
+                            <input type="button" id="startBtn" class="btn workStartBtn" value="">再開する
+                        </label>
+                    </div>
+                </div>
+                <!-- /タイマーボタンエリア -->
+            </div>
+            <!-- 休憩モーダル -->
+            <div id="modalTwo" class="modal d-none">
+                <div class="modal-content">
+                    <div class="bg-wrap">
+                        <img id="preview_bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <div class="modal-body">
+                            <div class="modal-img-wrap">
+                                <div class="modal-img-oshi-kira">
+                                    <img src="./image/kirakira.png">
+                                </div>
+                                <div class="modal-img-oshi">
+                                    <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                                    <div class="kirakiraFilter"></div>
+                                </div>
+                                <div class="modal-img-oshi-comment">
+                                    <img src="./image/otsukare_img.png">
+                                </div>
+                            </div>
+                            <div>
+                            <div class="modal-footer">
+                                <p class="timeLeft">
+                                    休憩時間&emsp;<span id="timer_l_m">05</span>:<span id="timer_l_s">00</span>
+                                </p>
+                                <div class="timerBtnWrap">
+                                    <label>
+                                        <input type="button" id="restStopBtn" class="btn" value="">
+                                        終わる
+                                    </label>
+                                    <label>
+                                        <input type="button" id="" class="btn workStartBtn triggerBtn" value="" data-modal="modalTwo">
+                                        続ける
+                                    </label>
+                                </div>
+                            </div>
+                            <audio src="./sound/timerBell.mp3" id="timerAudio"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+        </footer>
+        <!-- script読み込み -->
+        <script src="./js/main.js"></script>
+    </body>
+</html>
