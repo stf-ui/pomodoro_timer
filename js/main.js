@@ -26,8 +26,10 @@ const toSecond = (sec) => {
 }
 
 // タイマーカウントダウン用
-let pomodoroTarget = toSecond(25);
-let pomodoroRestTarget = toSecond(5);
+let workTime = 25;
+let restTime = 5;
+let pomodoroTarget = toSecond(workTime);
+let pomodoroRestTarget = toSecond(restTime);
 let pomodoroTimer;
 let pomodoroRestTimer;
 // 変数
@@ -38,6 +40,7 @@ let timerBtn_trig_arr = Array.from(timerBtn_trig);
 let timerBtn_tgr = document.getElementsByClassName("tgrBtn");
 let timerBtn_tgr_arr = Array.from(timerBtn_tgr);
 let closeBtn = document.getElementById('restStopBtn');
+let continueWorkBtn = document.getElementById('continueWorkBtn');
 const timerBell = document.getElementById("timerAudio");
 const setTimerBtn_start = document.getElementById("startBtn");
 const setTimerBtn_stop = document.getElementById("stopBtn");
@@ -53,10 +56,9 @@ const countdownTimer = () => {
   // console.log(doubleNum(s));
   if(pomodoroTarget < 0){
     clearInterval(pomodoroTimer);
-    pomodoroTarget = toSecond(25);
+    pomodoroTarget = toSecond(workTime);
     setTimerBtn_start.disabled = false;
-    // breakTimeModal.style.display = "block";
-    breakTimeModal.classList.add("d-block");
+    breakTimeModal.style.display = "block";
     restTimer();
   }
 }
@@ -71,7 +73,7 @@ const countdownRestTimer = () => {
   document.getElementById("timer_l_s").textContent = doubleNum(s);
   // console.log(doubleNum(s));
   if( pomodoroRestTarget < 0){
-    pomodoroRestTarget = toSecond(5);
+    pomodoroRestTarget = toSecond(restTime);
     clearInterval(pomodoroRestTimer);
     timerBell.play();
   }
@@ -103,10 +105,10 @@ timerBtn_start_arr.forEach((e) => e.addEventListener('click', () => {
 
 
 // モーダル制御用
-  timerBtn_trig_arr.forEach((e) => e.addEventListener('click', () => {
-    let modal = e.getAttribute('data-modal');
-    document.getElementById(modal).style.display = "none";
-  }));
+timerBtn_trig_arr.forEach((e) => e.addEventListener('click', () => {
+  let modal = e.getAttribute('data-modal');
+  document.getElementById(modal).style.display = "none";
+}));
 
 // クリックイベント
 
@@ -127,6 +129,7 @@ setTimerBtn_stop.addEventListener('click',(e) => {
 closeBtn.addEventListener("click",() => {
   window.location.reload();
 });
+
 
 
 
