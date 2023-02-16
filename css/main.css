@@ -173,7 +173,7 @@ body .modal .modal-content .modal-body .modal-img-wrap .modal-img-oshi-kira {
   right: 80%;
   width: 24%;
   max-width: 300px;
-  animation: flash 1.5s linear infinite;
+  animation: flash 1.5s linear;
 }
 @keyframes flash {
   0%, 100% {
