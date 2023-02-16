@@ -50,7 +50,7 @@ const countdownTimer = () => {
   document.getElementById("timer_m").textContent = doubleNum(m);
   document.getElementById("timer_s").textContent = doubleNum(s);
   pomodoroTarget--;
-  console.log(doubleNum(s));
+  // console.log(doubleNum(s));
   if(pomodoroTarget < 0){
     clearInterval(pomodoroTimer);
     pomodoroTarget = toSecond(25);
@@ -69,7 +69,7 @@ const countdownRestTimer = () => {
   pomodoroRestTarget--;
   document.getElementById("timer_l_m").textContent = doubleNum(m);
   document.getElementById("timer_l_s").textContent = doubleNum(s);
-  console.log(doubleNum(s));
+  // console.log(doubleNum(s));
   if( pomodoroRestTarget < 0){
     pomodoroRestTarget = toSecond(5);
     clearInterval(pomodoroRestTimer);
@@ -125,7 +125,7 @@ setTimerBtn_stop.addEventListener('click',(e) => {
 
 // 作業終了
 closeBtn.addEventListener("click",() => {
-  window.close('','_self');
+  window.location.reload();
 });
 
 
