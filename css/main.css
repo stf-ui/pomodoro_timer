@@ -114,6 +114,9 @@ body .timerBtnWrap label.tgrBtn.d-block {
 body .timerBtnWrap label input {
   display: none;
 }
+body .timerBtnWrap.tgrBtnWrap {
+  padding: 0 30px;
+}
 body .modal {
   z-index: 2;
   width: 100%;
