@@ -259,6 +259,7 @@ body {
                 display: block;
                 width: 100%;
                 max-width: 480px;
+                margin: 0 auto;
                 label {
                     padding: 0;
                 }
@@ -311,9 +312,9 @@ body {
     }
     // 制御用
     .d-none {
-        display: none !important;
+        display: none;
     }
     .d-block {
-        display: block !important;
+        display: block;
     }
 }

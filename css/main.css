@@ -264,6 +264,7 @@ body .modal#modalOne .timerBtnWrap {
   display: block;
   width: 100%;
   max-width: 480px;
+  margin: 0 auto;
 }
 body .modal#modalOne .timerBtnWrap label {
   padding: 0;
@@ -311,8 +312,8 @@ body .modal#modalTwo .modal-body .modal-footer .timerBtnWrap label {
   cursor: pointer;
 }
 body .d-none {
-  display: none !important;
+  display: none;
 }
 body .d-block {
-  display: block !important;
+  display: block;
 }/*# sourceMappingURL=main.css.map */
