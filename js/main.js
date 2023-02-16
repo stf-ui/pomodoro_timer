@@ -1,4 +1,3 @@
-// 現在時刻を表示する用(おまけなのでいったんこのままで放置)
 const clock = () => {
   let present = new Date();
   let hh = present.getHours();
@@ -25,8 +24,6 @@ const toSecond = (sec) => {
   sec = sec*60;
   return sec;
 }
-
-
 
 // タイマーカウントダウン用
 let pomodoroTarget = toSecond(25);
@@ -76,7 +73,6 @@ const countdownRestTimer = () => {
   if( pomodoroRestTarget < 0){
     pomodoroRestTarget = toSecond(5);
     clearInterval(pomodoroRestTimer);
-    console.log("休憩終了");
     timerBell.play();
   }
 }
@@ -84,11 +80,10 @@ const restTimer = () => {
   pomodoroRestTimer = setInterval(()=>{
     countdownRestTimer();
   },1000);
-  console.log("作業休憩！");
   timerBell.play();
 }
 
-// プレビュー画像を表示させる
+// 推し画像を表示させる
 const previewImage = (obj) => {
   let fileReader = new FileReader();
 	fileReader.onload = () => {
@@ -104,7 +99,6 @@ timerBtn_start_arr.forEach((e) => e.addEventListener('click', () => {
     countdownTimer();
   }, 1000);
   timerBtn_start_arr.disabled = false;
-  console.log("作業開始！");
 }));
 
 
@@ -112,7 +106,6 @@ timerBtn_start_arr.forEach((e) => e.addEventListener('click', () => {
   timerBtn_trig_arr.forEach((e) => e.addEventListener('click', () => {
     let modal = e.getAttribute('data-modal');
     document.getElementById(modal).style.display = "none";
-    alert("モーダル消えるよ");
   }));
 
 // クリックイベント
@@ -128,13 +121,10 @@ setTimerBtn_stop.addEventListener('click',(e) => {
   clearInterval(pomodoroTimer);
   e.target.parentNode.style.display = "none";
   setTimerBtn_start.parentNode.style.display = "block";
-  // 検証用
-  console.log("作業終了！");
 });
 
 // 作業終了
 closeBtn.addEventListener("click",() => {
-  alert("作業終了！お疲れでしたー");
   window.close();
 });
 
