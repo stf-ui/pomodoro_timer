@@ -105,7 +105,8 @@ body .timerBtnWrap label.btn-blue {
 }
 body .timerBtnWrap label.tgrBtn {
   display: none;
-  margin: 0 30px;
+  margin: 0 auto 30px;
+  max-width: 480px;
 }
 body .timerBtnWrap label.tgrBtn.d-block {
   display: block;
@@ -275,6 +276,7 @@ body .modal#modalOne .timerExplain {
   text-align: left;
   width: 100%;
   max-width: 480px;
+  padding-bottom: 15px;
 }
 body .modal#modalTwo .modal-body {
   height: 100%;

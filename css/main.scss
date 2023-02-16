@@ -109,7 +109,8 @@ body {
             }
             &.tgrBtn {
                 display: none;
-                margin: 0 30px;
+                margin: 0 auto 30px;
+                max-width: 480px;
                 &.d-block {
                     display: block;
                 }
@@ -270,6 +271,7 @@ body {
                 text-align: left;
                 width: 100%;
                 max-width: 480px;
+                padding-bottom: 15px;
             }
         }
         &#modalTwo {
