@@ -125,7 +125,7 @@ setTimerBtn_stop.addEventListener('click',(e) => {
 
 // 作業終了
 closeBtn.addEventListener("click",() => {
-  window.close();
+  window.close('','_self');
 });
 
 
